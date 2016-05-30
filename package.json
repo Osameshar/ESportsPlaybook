@@ -1,0 +1,12 @@
+{
+    "name": "esports-playbook",
+    "version": "0.0.1",
+    "description": "Electron app to manage plays.",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron main.js"
+    },
+    "devDependencies": {
+    "electron-prebuilt": "^1.1.2"
+  }
+}
