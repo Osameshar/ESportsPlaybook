@@ -1,0 +1,11 @@
+
+<h2>{{playbooks.0.playbookName}}</h2>
+<p>content content content 1</p>
+{{#each playbooks.0.maps}}
+<h4>{{mapName}}</h4>
+    {{#each plays}}
+        <p>{{playName}}</p>
+    {{/each}}
+{{/each}}
+
+

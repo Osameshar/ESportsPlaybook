@@ -1,12 +1,18 @@
 {
-    "name": "esports-playbook",
-    "version": "0.0.1",
-    "description": "Electron app to manage plays.",
-    "main": "main.js",
-    "scripts": {
-        "start": "electron main.js"
-    },
-    "devDependencies": {
+  "name": "esports-playbook",
+  "version": "0.0.1",
+  "description": "Electron app to manage plays.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "devDependencies": {
     "electron-prebuilt": "^1.1.2"
+  },
+  "dependencies": {
+    "electron-reload": "^1.0.0",
+    "handlebars": "^4.0.5",
+    "jquery": "^2.2.4",
+    "underscore": "^1.8.3"
   }
 }

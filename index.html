@@ -1,1 +1,93 @@
-Startup Page
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>ESportsPlaybook</title>
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <script>var $ = jQuery = require("jquery");</script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="side-nav">   
+        
+      </div>
+      <div id="top-bar">
+
+      </div>
+      <div id="main">
+              
+      </div>
+    </div>
+  </body>
+<script>
+  //View switching logic
+  var viewEventHandler = require("./lib/viewEventHandler");
+  
+  viewEventHandler.on("renderedView", function(elementId, renderedView) {
+    $("#" + elementId).html(renderedView);
+  });
+  
+  var showContent = function(view,context){
+    viewEventHandler.emit("view-selected", "top-bar", "top-bar", context);
+    viewEventHandler.emit("view-selected", "side-nav", "side-nav", context);    
+    viewEventHandler.emit("view-selected", "main", view, context);
+  };
+  
+  //startup
+  $(function() {  
+    showContent("home", fakeData);
+    $(document).on("click",".nav",function(ev) {
+      ev.preventDefault();
+      if(this.id === "home"){
+        showContent(this.id, fakeData);
+      }
+      else{
+        showContent("playbook", fakeData);
+      }        
+    });    
+  });
+  
+  
+  
+   var fakeData = {
+        pageName: "CS:GO Playbook",
+        playbooks: [
+          {
+            playbookName: "pro-strats",
+            maps: [
+              {
+                mapName: "Dust2",
+                plays: [
+                  {playName: "play1"},{playName: "play2"},{playName: "play3"}              
+                ]
+              },
+              {
+                mapName: "Inferno",
+                plays: [
+                  {playName: "play3"}         
+                ]
+              },
+              {
+                mapName: "Mirage",
+                plays: [
+                  {playName: "play22"},{playName: "play21"}          
+                ]
+              },
+              {
+                mapName: "Nuke",
+                plays: [
+                  {playName: "play1"},{playName: "play2"}           
+                ]
+              }
+            ],
+          },
+        {
+          playbookName: "pro-strats-2"
+        }
+        ],
+
+      };
+</script>
+
+</html>
