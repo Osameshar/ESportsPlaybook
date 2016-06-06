@@ -9,6 +9,7 @@
   </head>
   <body>
     <div id="wrapper">
+       
       <div id="side-nav">   
         
       </div>
@@ -33,7 +34,7 @@
     viewEventHandler.emit("view-selected", "side-nav", "side-nav", context);    
     viewEventHandler.emit("view-selected", "main", view, context);
   };
-  
+
   //startup
   $(function() {  
     showContent("home", fakeData);
@@ -52,6 +53,9 @@
   
    var fakeData = {
         pageName: "CS:GO Playbook",
+        playbook: {
+          maps:[{mapName: "Dust2",plays:[{playName:"play"}]},{mapName: "Mirage"},{mapName: "Inferno"}]
+        },
         playbooks: [
           {
             playbookName: "pro-strats",
