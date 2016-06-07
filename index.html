@@ -24,74 +24,56 @@
 <script>
   //View switching logic
   var viewEventHandler = require("./lib/viewEventHandler");
+  var playbookOverview = require("./lib/playbook-overview");
   
   viewEventHandler.on("renderedView", function(elementId, renderedView) {
     $("#" + elementId).html(renderedView);
   });
   
-  var showContent = function(view,context){
-    viewEventHandler.emit("view-selected", "top-bar", "top-bar", context);
+  var showContent = function(view, selectedId, context){
+    //go to the correct view javascript and process the initial data to pass to the template
+    //this applied to nav buttons not logic in the actual views.
+    var viewData;
+    if(view == "playbook-overview")
+    {
+      viewData = playbookOverview.onLoad(selectedId);
+    }    
+    
+    viewEventHandler.emit("view-selected", "top-bar", "top-bar", viewData);
     viewEventHandler.emit("view-selected", "side-nav", "side-nav", context);    
-    viewEventHandler.emit("view-selected", "main", view, context);
+    viewEventHandler.emit("view-selected", "main", view, viewData);
   };
 
   //startup
   $(function() {  
-    showContent("home", fakeData);
+    showContent("home", "home", fakeData);
     $(document).on("click",".nav",function(ev) {
       ev.preventDefault();
       if(this.id === "home"){
-        showContent(this.id, fakeData);
+        showContent(this.id, this.id, fakeData);
       }
       else{
-        showContent("playbook", fakeData);
+        showContent("playbook-overview", this.id, fakeData);
       }        
     });    
   });
   
   
-  
-   var fakeData = {
-        pageName: "CS:GO Playbook",
-        playbook: {
-          maps:[{mapName: "Dust2",plays:[{playName:"play"}]},{mapName: "Mirage"},{mapName: "Inferno"}]
-        },
-        playbooks: [
-          {
-            playbookName: "pro-strats",
-            maps: [
-              {
-                mapName: "Dust2",
-                plays: [
-                  {playName: "play1"},{playName: "play2"},{playName: "play3"}              
-                ]
-              },
-              {
-                mapName: "Inferno",
-                plays: [
-                  {playName: "play3"}         
-                ]
-              },
-              {
-                mapName: "Mirage",
-                plays: [
-                  {playName: "play22"},{playName: "play21"}          
-                ]
-              },
-              {
-                mapName: "Nuke",
-                plays: [
-                  {playName: "play1"},{playName: "play2"}           
-                ]
-              }
-            ],
-          },
-        {
-          playbookName: "pro-strats-2"
-        }
-        ],
+  var fakeData = {
+    pageName: "playbook-overview",
+    playbooks: [
+      {
+        playbookName: "playbook1"
+      },
+      {
+        playbookName: "playbook2"
+      },
+      {
+        playbookName: "playbook3"
+      }
+    ]
+  }
 
-      };
 </script>
 
 </html>

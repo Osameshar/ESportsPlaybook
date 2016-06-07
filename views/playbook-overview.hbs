@@ -1,0 +1,35 @@
+<style>
+.maps {
+    border: 1px solid blue;
+    width: 30%;
+    height: 100%;
+    display: inline-block; /*Display inline and maintain block characteristics.*/
+    vertical-align: top; /*Makes sure all the divs are correctly aligned.*/
+    
+} 
+.plays {
+    border: 1px solid red;
+    width: 60%;
+    height: 100%;
+    display: inline-block; /*Display inline and maintain block characteristics.*/
+    vertical-align: top; /*Makes sure all the divs are correctly aligned.*/
+    
+}
+</style>
+<div id="playbook-overview" class="playbook-overview">
+    <div id="maps" class="maps">
+        {{#each maps}}
+            <li><a href="#" id="{{mapName}}" class="map">{{mapName}}</a></li>
+        {{/each}}
+    </div>
+    <div id="plays" class="plays">
+
+    </div>
+</div>
+
+<script>
+    var controller = require("./lib/playbook-overview");
+    $(".map").on("click", function() {
+        controller.selectMap(this.id);
+    })
+</script>
