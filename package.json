@@ -13,6 +13,7 @@
     "electron-reload": "^1.0.0",
     "handlebars": "^4.0.5",
     "jquery": "^2.2.4",
+    "mongodb": "^2.1.18",
     "underscore": "^1.8.3"
   }
 }
