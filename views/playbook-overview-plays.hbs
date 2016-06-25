@@ -1,3 +1,9 @@
 {{#each plays}}
-    <li><a href="#" id="{{playName}}" class="map">{{playName}}</a></li>
+    <li>
+        <a href="#" id="{{playName}}" class="play">{{playName}}</a>
+    </li>
 {{/each}}
+
+<script>
+    var controller = require("./lib/playbook-overview");
+</script>
