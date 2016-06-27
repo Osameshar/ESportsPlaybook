@@ -1,0 +1,17 @@
+<form id="add-playbook-form" action="#">
+  <input id="playbookName" type="text" value="Playbook Name">
+  <input type="submit" value="Submit">
+</form>
+
+<script>
+    var dataAccess = require("./lib/data-access");
+
+    $("#add-playbook-form").submit(function( ev) {
+        let playbookToAdd = {};
+        playbookToAdd.playbookName = this.playbookName.value;
+        dataAccess.insertOnePlaybook(playbookToAdd, function (playbooks) {
+            showContent("home", playbooks);
+        })
+        ev.preventDefault();
+    });
+</script>

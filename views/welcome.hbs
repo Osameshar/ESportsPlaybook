@@ -10,7 +10,7 @@
 
     $("#account").submit(function( event ) {
         dataAccess.submitAccount(this.accountInput.value, function(playbooks) {
-            showContent("home", "home", playbooks);
+            showContent("home", playbooks);
         });
         event.preventDefault();
     });
