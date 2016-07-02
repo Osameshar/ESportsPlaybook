@@ -42,20 +42,23 @@
 
 <script>
     var dataAccess = require("./lib/data-access");
-
+    var controller = require("./lib/playbook-overview");
     
     $("#add-play-form").submit(function(ev) {
         let roles = [];
-        let rolesIds = $("[id^=role]").each(function(element, index, array) {
-            console.log(element);
-            roles.push(element.value);
+        let rolesIds = $("[id^=role]").each(function(index, element, array) {
+            roles.push({
+                description: element.value
+            });
         });
 
-        console.log(roles);
         let play = {
             playName: this.playName.value,
             roles: roles
         };
+        controller.addPlay(play, function() {
+
+        });
 
         ev.preventDefault();
     });
