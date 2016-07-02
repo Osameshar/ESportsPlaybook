@@ -1,44 +1,52 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-8">
-            <form id="add-play-form" action="#">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                          <label for="playNamelbl" class="control-label">Play Name</label>
-                          <input id="playName" class="form-control" type="text" placeholder="Enter a name for your play...">
-                        </div>
+
+<div class="col-md-8">
+    <form class="form-horizontal" id="add-play-form" action="#">
+        <fieldset>
+            <legend>Add Play</legend>
+                <div class="form-group">
+                    <label for="playNamelbl" class="col-md-2 control-label">Play Name</label>
+                    <div class="col-md-10">
+                         <input id="playName" class="form-control" type="text" placeholder="Enter a name for your play...">
                     </div>
                 </div>
-
                 <div class="form-group">
-                    <label for="" class="control-label">Role #1</label>
-                    <textarea name="" id="role1" cols="30" rows="10" placeholder="Enter play steps..." style="resize: vertical" rows=8  class="form-control"></textarea>
+                    <label class="col-md-2 control-label">Role #1</label>
+                    <div class="col-md-10">
+                        <textarea id="role1" cols="30" rows="4" placeholder="Enter play steps..." style="resize: vertical" rows=8  class="form-control"></textarea>
+                    </div>                    
                 </div>
                 <div class="form-group">
-                    <label for="" class="control-label">Role #2</label>
-                    <textarea name="" id="role2" cols="30" rows="10" placeholder="Enter play steps..." style="resize: vertical" rows=8 class="form-control"></textarea>
+                    <label class="col-md-2 control-label">Role #2</label>
+                    <div class="col-md-10">
+                        <textarea id="role2" cols="30" rows="4" placeholder="Enter play steps..." style="resize: vertical" rows=8  class="form-control"></textarea>
+                    </div>                    
                 </div>
                 <div class="form-group">
-                    <label for="" class="control-label">Role #3</label>
-                    <textarea name="" id="role3" cols="30" rows="10" placeholder="Enter play steps..." style="resize: vertical" rows=8 class="form-control"></textarea>
+                    <label class="col-md-2 control-label">Role #3</label>
+                    <div class="col-md-10">
+                        <textarea id="role3" cols="30" rows="4" placeholder="Enter play steps..." style="resize: vertical" rows=8  class="form-control"></textarea>
+                    </div>                    
                 </div>
                 <div class="form-group">
-                    <label for="" class="control-label">Role #4</label>
-                    <textarea name="" id="role4" cols="30" rows="10" placeholder="Enter play steps..." style="resize: vertical" rows=8 class="form-control"></textarea>
+                    <label class="col-md-2 control-label">Role #4</label>
+                    <div class="col-md-10">
+                        <textarea id="role4" cols="30" rows="4" placeholder="Enter play steps..." style="resize: vertical" rows=8  class="form-control"></textarea>
+                    </div>                    
                 </div>
                 <div class="form-group">
-                    <label for="" class="control-label">Role #5</label>
-                    <textarea name="" id="role5" cols="30" rows="10" placeholder="Enter play steps..." style="resize: vertical" rows=8 class="form-control"></textarea>
-                </div>
-
-                <input class="btn btn-primary" type="submit" value="Submit">
-            </form>
-        </div>
-    </div>
-
+                    <label class="col-md-2 control-label">Role #5</label>
+                    <div class="col-md-10">
+                        <textarea id="role5" cols="30" rows="4" placeholder="Enter play steps..." style="resize: vertical" rows=8  class="form-control"></textarea>
+                    </div>                    
+                </div> 
+                <div class="form-group">
+                    <div class="col-md-2 col-md-offset-10">
+                        <input class="btn btn-success" type="submit" value="Submit">                                           
+                    </div>
+                </div>                                                                               
+        </fieldset>
+    </form>
 </div>
-
 
 <script>
     var dataAccess = require("./lib/data-access");

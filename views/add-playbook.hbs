@@ -1,7 +1,24 @@
-<form id="add-playbook-form" action="#">
-  <input id="playbookName" type="text" value="Playbook Name">
-  <input type="submit" value="Submit">
-</form>
+
+<div class="col-md-8">
+    <form class="form-horizontal" id="add-playbook-form" action="#">
+        <fieldset>
+            <legend>Add Playbook</legend>
+        <div class="form-group">
+            <label class="col-md-2 control-label">Name</label>
+            <div class="col-md-10">
+                <input class="form-control" id="playbookName" type="text" placeholder="Enter Playbook Name...">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2 col-md-offset-10">
+                    <input class="btn btn-success" type="submit" value="Submit">                
+            </div>
+        </div>
+        </fieldset>                        
+    </form>
+</div>
+
+    
 
 <script>
     var dataAccess = require("./lib/data-access");
