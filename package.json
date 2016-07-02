@@ -10,6 +10,7 @@
     "electron-prebuilt": "^1.1.2"
   },
   "dependencies": {
+    "bootstrap": "^3.3.6",
     "electron-reload": "^1.0.0",
     "handlebars": "^4.0.5",
     "jquery": "^2.2.4",

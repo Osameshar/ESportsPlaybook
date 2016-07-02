@@ -1,18 +1,61 @@
-<form id="add-play-form" action="#">
-  <input id="playName" type="text" value="Play Name">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <form id="add-play-form" action="#">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="playNamelbl" class="control-label">Play Name</label>
+                          <input id="playName" class="form-control" type="text" placeholder="Enter a name for your play...">
+                        </div>
+                    </div>
+                </div>
 
-  <textarea id="tfPlayDescription" style="resize: vertical" rows=8 > </textarea>
+                <div class="form-group">
+                    <label for="" class="control-label">Role #1</label>
+                    <textarea name="" id="role1" cols="30" rows="10" placeholder="Enter play steps..." style="resize: vertical" rows=8  class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="" class="control-label">Role #2</label>
+                    <textarea name="" id="role2" cols="30" rows="10" placeholder="Enter play steps..." style="resize: vertical" rows=8 class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="" class="control-label">Role #3</label>
+                    <textarea name="" id="role3" cols="30" rows="10" placeholder="Enter play steps..." style="resize: vertical" rows=8 class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="" class="control-label">Role #4</label>
+                    <textarea name="" id="role4" cols="30" rows="10" placeholder="Enter play steps..." style="resize: vertical" rows=8 class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="" class="control-label">Role #5</label>
+                    <textarea name="" id="role5" cols="30" rows="10" placeholder="Enter play steps..." style="resize: vertical" rows=8 class="form-control"></textarea>
+                </div>
 
+                <input class="btn btn-primary" type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
 
-  <input type="submit" value="Submit">
-</form>
+</div>
+
 
 <script>
     var dataAccess = require("./lib/data-access");
 
+    
     $("#add-play-form").submit(function(ev) {
-        let play = {};
-        playbookToAdd.playbookName = this.playbookName.value;
+        let roles = [];
+        let rolesIds = $("[id^=role]").each(function(element, index, array) {
+            console.log(element);
+            roles.push(element.value);
+        });
+
+        console.log(roles);
+        let play = {
+            playName: this.playName.value,
+            roles: roles
+        };
 
         ev.preventDefault();
     });
