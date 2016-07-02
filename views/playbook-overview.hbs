@@ -16,21 +16,34 @@
     
 }
 </style>
-<div id="playbook-overview" class="playbook-overview">
-    <div id="maps" class="maps">
-        {{#each maps}}
-            <li><a href="#" id="{{mapName}}" class="map">{{mapName}}</a></li>
-        {{/each}}
+<div id="playbook-overview" class="col-md-8 playbook-overview">
+    <div class="row">
+        <div class="col-md-5">
+            <h4>Maps</h4> 
+        </div>
+        <div id="playsHeader" class="col-md-7" style="visibility: hidden">
+            <h4>Plays</h4>
+        </div>
     </div>
-    <div id="plays" class="plays">
+    <div class="row">
+        <div class="col-md-5" id="maps" class="maps">
+            <div class="list-group">            
+                {{#each maps}}
+                    <button type="button" style="margin-bottom:1px" id="{{mapName}}" class="map list-group-item">{{mapName}}<span class="badge">3</span></button>
+                {{/each}}
+            </div>
+        </div>
+        <div class="col-md-7" id="plays" class="plays">
 
+        </div>
     </div>
+    <button class="btn btn-danger" id="deletePlaybook">Delete Playbook</button>    
 </div>
-<button id="deletePlaybook">Delete Playbook</button>
 
 <script>
     var controller = require("./lib/playbook-overview");
     $(".map").on("click", function() {
+        $('#playsHeader').css("visibility", "visible");
         controller.selectMap(this.id);
     });
 

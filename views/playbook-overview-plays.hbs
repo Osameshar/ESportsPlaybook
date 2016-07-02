@@ -1,9 +1,17 @@
+
+        <div class="list-group">            
+                <button type="button" style="margin-bottom:1px" class="map list-group-item">test1</button>
+                <button type="button" style="margin-bottom:1px" class="map list-group-item">test1</button>
+                <button type="button" style="margin-bottom:1px" class="map list-group-item">test1</button>     
+                <button class="btn btn-success col-md-3 col-md-offset-9" id="addPlay">Add Play</button>        
+        </div>
+    <!--<li>
+        <a href="#" id="{{playName}}" class="play">{{playName}}</a> 
+    </li>-->
+
 {{#each plays}}
-    <li>
-        <a href="#" id="{{playName}}" class="play">{{playName}}</a>        
-    </li>
+
 {{/each}}
-<button id="addPlay">Add Play</button>
 
 <script>
     var controller = require("./lib/playbook-overview");
