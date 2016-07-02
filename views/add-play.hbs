@@ -1,0 +1,19 @@
+<form id="add-play-form" action="#">
+  <input id="playName" type="text" value="Play Name">
+
+  <textarea id="tfPlayDescription" style="resize: vertical" rows=8 > </textarea>
+
+
+  <input type="submit" value="Submit">
+</form>
+
+<script>
+    var dataAccess = require("./lib/data-access");
+
+    $("#add-play-form").submit(function(ev) {
+        let play = {};
+        playbookToAdd.playbookName = this.playbookName.value;
+
+        ev.preventDefault();
+    });
+</script>

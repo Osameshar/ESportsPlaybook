@@ -6,11 +6,15 @@
 <script>
     var dataAccess = require("./lib/data-access");
 
-    $("#add-playbook-form").submit(function( ev) {
+    $("#add-playbook-form").submit(function(ev) {
         let playbookToAdd = {};
         playbookToAdd.playbookName = this.playbookName.value;
-        dataAccess.insertOnePlaybook(playbookToAdd, function (playbooks) {
-            showContent("home", playbooks);
+        dataAccess.insertOnePlaybook(playbookToAdd, function (result) {
+
+            dataAccess.findAllPlaybooksByAccount(function(playbooks) {
+                showContent("home", playbooks);
+            })
+
         })
         ev.preventDefault();
     });

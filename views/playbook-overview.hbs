@@ -26,10 +26,22 @@
 
     </div>
 </div>
+<button id="deletePlaybook">Delete Playbook</button>
 
 <script>
     var controller = require("./lib/playbook-overview");
     $(".map").on("click", function() {
         controller.selectMap(this.id);
+    });
+
+     $("#deletePlaybook").on("click", function() {
+        let verifyDelete = confirm("Are you sure you want to delete this playbook?");
+        if(verifyDelete)
+        {
+            controller.deletePlaybook(function(playbooks) {
+                showContent("home", playbooks);
+            })
+        }
+
     });
 </script>
