@@ -1,15 +1,20 @@
 
 <div class="list-group">           
     {{#each plays}}
-        <button type="button" style="margin-bottom:1px" class="map list-group-item">{{playName}}</button>
+        <button type="button" style="margin-bottom:1px" class="map list-group-item playNav" id={{playId}}>{{playName}}</button>
     {{/each}}       
 </div>
 <button class="btn btn-success col-md-3 col-md-offset-9" id="addPlay">Add Play</button>
-   
+
 <script>
     var controller = require("./lib/playbook-overview");
 
     $("#addPlay").on("click", function() {
         viewEventHandler.emit("view-selected", "main", "add-play");
-    })
+    });
+    $(".playNav").on("click", function() {
+        controller.viewPlay(this.id, function() {
+            
+        })
+    });
 </script>
