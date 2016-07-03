@@ -29,7 +29,7 @@
         <div class="col-md-5" id="maps" class="maps">
             <div class="list-group">            
                 {{#each maps}}
-                    <button type="button" style="margin-bottom:1px" id="{{mapName}}" class="map list-group-item">{{mapName}}<span class="badge">3</span></button>
+                    <button type="button" style="margin-bottom:1px" id="{{mapName}}" class="map list-group-item">{{mapName}}<span class="badge">{{plays.length}}</span></button>
                 {{/each}}
             </div>
         </div>
