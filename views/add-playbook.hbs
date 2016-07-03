@@ -26,9 +26,10 @@
         let playbookToAdd = {};
         playbookToAdd.playbookName = this.playbookName.value;
         dataAccess.insertOnePlaybook(playbookToAdd, function (result) {
-
             dataAccess.findAllPlaybooksByAccount(function(playbooks) {
-                showContent("home", playbooks);
+                playbookOverview.onLoad(result.insertedId);
+                viewEventHandler.emit("view-selected", "side-nav", "side-nav", playbooks); 
+                viewEventHandler.emit("view-selected", "top-bar", "top-bar", {pageName: playbookToAdd.playbookName});
             });
 
         });

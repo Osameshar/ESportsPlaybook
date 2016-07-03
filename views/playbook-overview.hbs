@@ -42,6 +42,7 @@
 
 <script>
     var controller = require("./lib/playbook-overview");
+    
     $(".map").on("click", function() {
         $('#playsHeader').css("visibility", "visible");
         controller.selectMap(this.id);
