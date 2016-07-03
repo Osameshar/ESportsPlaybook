@@ -11,7 +11,12 @@ require("electron-reload")(__dirname);
 let mainWindow;
 
 function createWindow() {
-  mainWindow = new BrowserWindow({width: 1280, height: 720, minWidth: 800, minHeight: 500});
+  mainWindow = new BrowserWindow({
+    width: 1280,
+    height: 720,
+    minWidth: 800,
+    minHeight: 500
+  });
   
   mainWindow.loadURL(`file://${__dirname}/index.html`);
   
@@ -23,7 +28,7 @@ function createWindow() {
     mainWindow = null;
   });
 } 
-  app.on('ready', createWindow)
+  app.on('ready', createWindow);
   
   app.on('window-all-closed', function () {
       app.quit();
