@@ -12,3 +12,14 @@
         </div>
     {{/each}}    
 </div>
+
+<button id="backToSelectedMap">Back to Map</button>
+<script>
+    var controller = require("./lib/playbook-overview");
+
+    $("#backToSelectedMap").on("click", function() {
+        controller.returnToLoadedPlaybook(function() {
+            $('#playsHeader').css("visibility", "visible");
+        });
+    });
+</script>
