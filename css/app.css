@@ -64,9 +64,10 @@ body {
   bottom: 0;
   right:0;
   background-color: #36393E ;
-  overflow-y: auto;
+  overflow: auto;  
   color:white;
 }
+
 #side-nav ul {
   list-style: none;
   padding: 19px;
@@ -88,6 +89,7 @@ body {
   min-width: 800px;
   height: 100%;
   padding-left:0px;
+   overflow: auto;  
 }
 
 

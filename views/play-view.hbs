@@ -1,3 +1,14 @@
-{{#each roles}}
-    {{description}}
-{{/each}}
+<div class="col-md-10">
+    {{#each roles}}
+    <div style="margin-bottom:10px; border-bottom: 1px solid #F39C12" class="row">
+        <div class="col-md-12">
+            <h4>Role {{inc @index}}</h4>
+        </div>
+    </div>   
+        <div style="min-height: 100px;" class="row">
+            <div class=col-md-12>
+                {{description}}
+            </div>
+        </div>
+    {{/each}}    
+</div>
