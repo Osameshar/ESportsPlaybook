@@ -1,7 +1,15 @@
-<div class="list-group">           
+<div class="list-group">
     {{#each plays}}
-        <button type="button" style="margin-bottom:1px" class="map list-group-item playNav" id={{playId}}>{{playName}}</button>
-    {{/each}}       
+        <button type="button" style="margin-bottom:1px" class="list-group-item playNav" id={{playId}}>{{playName}}
+            <span id="badge-{{playId}}"class="badge">{{efficacy}}%</span>
+        </button>
+        <button type="button" style="margin-bottom:1px" class="list-group-item playSuccess" id="success-{{playId}}">
+            Success
+        </button>
+        <button type="button" style="margin-bottom:1px" class="list-group-item playFailure" id="failure-{{playId}}">
+            Failure
+        </button>
+    {{/each}}
 </div>
 <button class="btn btn-success col-md-4 col-md-offset-8" id="addPlay">Add Play</button>
 
@@ -13,7 +21,19 @@
     });
     $(".playNav").on("click", function() {
         controller.viewPlay(this.id, function() {
-            
+
         });
+    });
+    $(".playSuccess").on("click", function() {
+        let playId = this.id.substring(8);
+        controller.logSuccess(playId, function(result) {
+            $("#badge-"+playId).html(result+"%");
+        })
+    });
+    $(".playFailure").on("click", function() {
+        let playId = this.id.substring(8);
+        controller.logFailure(playId, function (result) {
+            $("#badge-"+playId).html(result+"%");
+        })
     });
 </script>
