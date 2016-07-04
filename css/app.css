@@ -64,7 +64,8 @@ body {
   bottom: 0;
   right:0;
   background-color: #36393E ;
-  overflow: auto;  
+  overflow-y: auto;  
+  overflow-x: hidden;
   color:white;
 }
 

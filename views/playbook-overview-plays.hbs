@@ -1,17 +1,23 @@
 <div class="list-group">
     {{#each plays}}
-        <button type="button" style="margin-bottom:1px" class="list-group-item playNav" id={{playId}}>{{playName}}
-            <span id="badge-{{playId}}"class="badge">{{efficacy}}%</span>
-        </button>
-        <button type="button" style="margin-bottom:1px" class="list-group-item playSuccess" id="success-{{playId}}">
-            Success
-        </button>
-        <button type="button" style="margin-bottom:1px" class="list-group-item playFailure" id="failure-{{playId}}">
-            Failure
-        </button>
+    <div class="row">
+        <div class="col-md-6">
+            <button type="button" style="margin-bottom:1px" class="list-group-item playNav" id={{playId}}>{{playName}}
+                <span id="badge-{{playId}}"class="badge">{{efficacy}}%</span>
+            </button>
+        </div>
+        <div class="col-md-4">
+            <button type="button" style="margin-bottom:1px" class="btn btn-sm btn-info playSuccess" id="success-{{playId}}">
+                Success
+            </button>
+            <button type="button" style="margin-bottom:1px" class="btn btn-sm btn-danger playFailure" id="failure-{{playId}}">
+                Failure
+            </button>
+        </div>        
+    </div>       
     {{/each}}
+    <button class="btn btn-success" style="margin-top: 10px" id="addPlay">Add Play</button>    
 </div>
-<button class="btn btn-success col-md-4 col-md-offset-8" id="addPlay">Add Play</button>
 
 <script>
     var controller = require("./lib/playbook-overview");
