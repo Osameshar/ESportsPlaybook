@@ -9,6 +9,12 @@
                          <input id="playName" class="form-control" type="text" placeholder="Enter a name for your play...">
                     </div>
                 </div>
+                 <div class="form-group">
+                    <label for="mapNamelbl" class="col-md-2 control-label">Map Name</label>
+                    <div class="col-md-10">
+                         <input id="mapName" class="form-control" type="text" placeholder="Enter Map name...">
+                    </div>
+                </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">Role #1</label>
                     <div class="col-md-10">
@@ -62,6 +68,12 @@
 
         let play = {
             playName: this.playName.value,
+            mapName: this.mapName.value,
+            analytics: {
+                successCount: 0,
+                failureCount: 0,
+                efficacy: 0
+            },
             roles: roles
         };
         controller.addPlay(play, function() {

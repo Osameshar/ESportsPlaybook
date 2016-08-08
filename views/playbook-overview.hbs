@@ -19,10 +19,10 @@
 <div id="playbook-overview" class="col-md-12 playbook-overview">
     <div class="row">
         <div class="col-md-4 col-md-offset-9">
-            <button class="btn btn-danger" id="deletePlaybook">Delete Playbook</button>               
+            <button class="btn btn-danger" id="deletePlaybook">Delete Playbook</button>
+            <button class="btn btn-success" style="margin-top: 10px" id="addPlay">Add Play</button>                  
         </div>
-    </div>
-    
+    </div>    
     <div class="row">
         <div class="col-md-3">
             <h4>Maps</h4> 
@@ -52,8 +52,12 @@
         $('#playsHeader').css("visibility", "visible");
         controller.selectMap(this.id);
     });
+    
+    $("#addPlay").on("click", function() {
+        viewEventHandler.emit("view-selected", "main", "add-play");
+    });
 
-     $("#deletePlaybook").on("click", function() {
+    $("#deletePlaybook").on("click", function() {
         let verifyDelete = confirm("Are you sure you want to delete this playbook?");
         if(verifyDelete)
         {

@@ -16,15 +16,11 @@
         </div>        
     </div>       
     {{/each}}
-    <button class="btn btn-success" style="margin-top: 10px" id="addPlay">Add Play</button>    
+ 
 </div>
 
 <script>
     var controller = require("./lib/playbook-overview");
-
-    $("#addPlay").on("click", function() {
-        viewEventHandler.emit("view-selected", "main", "add-play");
-    });
     $(".playNav").on("click", function() {
         controller.viewPlay(this.id, function() {
 

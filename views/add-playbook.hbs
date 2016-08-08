@@ -20,15 +20,20 @@
     var dataAccess = require("./lib/data-access");
 
     $("#add-playbook-form").submit(function(ev) {
+
         let playbookToAdd = {};
+        let accountName = sessionStorage.getItem("accountName");
+
         playbookToAdd.playbookName = this.playbookName.value;
+        playbookToAdd.accountName = accountName;
+        playbookToAdd.plays = [];
+
         dataAccess.insertOnePlaybook(playbookToAdd, function (result) {
             dataAccess.findAllPlaybooksByAccount(function(playbooks) {
                 playbookOverview.onLoad(result.insertedId);
                 viewEventHandler.emit("view-selected", "side-nav", "side-nav", playbooks); 
                 viewEventHandler.emit("view-selected", "top-bar", "top-bar", {pageName: playbookToAdd.playbookName});
             });
-
         });
         ev.preventDefault();
     });
